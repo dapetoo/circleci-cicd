@@ -17,10 +17,10 @@ jobs:
       - image: cimg/base:stable
       
         environment:
-          MY_ENV_VAR_1: my-value-1
+          MY_ENV_VAR_1: Peter 
           MY_ENV_VAR_2: my-value-2
     # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    # See: https://circleci.com/doMY_ENV_VAR_1cs/2.0/configuration-reference/#steps
     steps:
       - checkout
       - run:
@@ -29,7 +29,7 @@ jobs:
       
       - run:
           name: "Print environment variable"
-          command: echo MY_ENV_VAR_1
+          command: "echo MY_ENV_VAR_1"
   
   say-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
