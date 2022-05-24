@@ -52,11 +52,9 @@ jobs:
       #       - ~/.m2 
 
       - persist_to_workspace:
-          root: /tmp/workspace
-          paths:
-            - output
-            - output.txt
-            - baz
+          root: .
+          paths: 
+            - rand_*
 
 
   print_output:
@@ -68,11 +66,13 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/doMY_ENV_VAR_1cs/2.0/configuration-reference/#steps
     steps:
-      - checkout
-    
       - attach_workspace:
-          at: /tmp/workspace
+          at: .
 
+      - run:
+          command: |
+            echo "this is a deploy step"
+            
       - run:
           name: "Say hello output"
           command: cat output.txt
