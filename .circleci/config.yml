@@ -75,7 +75,7 @@ jobs:
 
       - run:
           name: "Say hello output"
-          command: cat ~/output.txt
+          command: cat ~/outputs.txt
 
   say-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
