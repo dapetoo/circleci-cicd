@@ -44,7 +44,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello output"
-          command: echo "text to output here" > /home/circleci/project/output.txt
+          command: echo "text to output here" > ~/outputs.txt
       
       # - save_cache:
       #     key: Udacity Challenge-{{ checksum "project.cli"}}
@@ -52,9 +52,9 @@ jobs:
       #       - ~/.m2 
 
       - persist_to_workspace:
-          root: /home/circleci/project
+          root: ~/
           paths: 
-            - /home/circleci/project
+            - outputs.txt
 
 
   print_output:
@@ -67,7 +67,7 @@ jobs:
     # See: https://circleci.com/doMY_ENV_VAR_1cs/2.0/configuration-reference/#steps
     steps:
       - attach_workspace:
-          at: /home/circleci/project
+          at: ~/ 
 
       - run:
           command: |
@@ -75,7 +75,7 @@ jobs:
 
       - run:
           name: "Say hello output"
-          command: cat output.txt
+          command: cat ~/output.txt
 
   say-world:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
