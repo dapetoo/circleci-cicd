@@ -21,6 +21,7 @@ orbs:
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
 
+
   say-hello:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -41,8 +42,15 @@ jobs:
       - run:
           name: "Print environment variable"
           command: echo $MY_ENV_VAR_1
-
-
+  
+  sayhello2FromaCommand:
+    docker:
+      - image: cimg/base:stable
+      
+    steps:
+      - sayhello:
+          to: "World"
+      
   save_hello_world_output:
     # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
     # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
@@ -83,7 +91,7 @@ jobs:
       - run:
           command: |
             echo "this is a deploy step"
-            sayhello
+          
 
       - run:
           name: "Say hello output"
@@ -120,3 +128,4 @@ workflows:
       - print_output:
             requires:
               - save_hello_world_output
+      - sayhello2FromaCommand
