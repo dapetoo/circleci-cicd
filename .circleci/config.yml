@@ -52,7 +52,7 @@ jobs:
       #       - ~/.m2 
 
       - persist_to_workspace:
-          root: .
+          root: /home/circleci/project
           paths: 
             - /home/circleci/project
 
