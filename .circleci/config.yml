@@ -83,6 +83,7 @@ jobs:
       - run:
           command: |
             echo "this is a deploy step"
+            sayhello
 
       - run:
           name: "Say hello output"
@@ -110,7 +111,6 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - sayhello
       - welcome/run
       - say-hello
       - say-world:
