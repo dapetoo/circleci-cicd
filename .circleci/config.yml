@@ -82,6 +82,7 @@ workflows:
     jobs:
       - welcome/run
       - say-hello
+      - save-hello-world-output
       - say-world:
             requires:
               - say-hello
