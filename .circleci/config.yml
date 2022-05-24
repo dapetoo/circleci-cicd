@@ -105,11 +105,10 @@ workflows:
     jobs:
       - welcome/run
       - say-hello
-      - save-hello-world-output
       - say-world:
             requires:
               - say-hello
-      - save-hello-world-output
-      - print-output:
+      - save_hello_world_output
+      - print_output:
             requires:
-              - save-hello-world-output
+              - save_hello_world_output
